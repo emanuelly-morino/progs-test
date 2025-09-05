@@ -24,6 +24,16 @@ with db_session:
     commit()
     print("alterada:", jo)
 
+
+    # inserindo outra pessoa
+    ma = Pessoa(nome='Maria Oliveira', email='ma@gmail.com')
+    commit()
+    print(ma)
+
+    # localizando uma pessoa
+    alguem = Pessoa.get(nome='Maria Oliveira')
+    print("localizada:", alguem)
+
     # listando
     # https://docs.ponyorm.org/firststeps.html#writing-queries
 

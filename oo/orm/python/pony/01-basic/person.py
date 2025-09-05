@@ -13,7 +13,13 @@ class Pessoa(db.Entity):
     telefone = Optional(str)
 
 # especificando o BD; o BD será criado caso não exista
-db.bind(provider='sqlite', filename='person.db', create_db=True)
+#db.bind(provider='sqlite', filename='person.db', create_db=True)
+
+# conexão MYSQL abaixo
+'''db.bind(provider='mysql', host='191.52.7.117', 
+        user='root', password='root', 
+        database='hylson')
+'''
 
 # optando por criar as tabelas
 db.generate_mapping(create_tables=True)
