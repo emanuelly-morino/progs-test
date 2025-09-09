@@ -9,7 +9,9 @@ class Pessoa(db.Entity):
     def __str__(self):
         return f'{self.nome}, {self.email}, {self.telefone}'
 
-db.bind(provider='sqlite', filename='person.db', create_db=True)
+db.bind(provider='sqlite', 
+        filename='person.db', 
+        create_db=True)
 db.generate_mapping(create_tables=True)
 
 with db_session:
@@ -37,8 +39,6 @@ with db_session:
     # listando
     # https://docs.ponyorm.org/firststeps.html#writing-queries
 
-    ma = Pessoa(nome='Maria Oliveira', email='maliv@gmail.com')
-    commit()
     print("listando:")
     pessoas = Pessoa.select()
     # pessoas = select(p for p in Pessoa) # outra maneira
