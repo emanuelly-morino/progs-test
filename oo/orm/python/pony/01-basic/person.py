@@ -1,3 +1,4 @@
+# para usar pony é preciso instalar:
 # pip3 install pony
 
 # importando a biblioteca
@@ -20,6 +21,9 @@ db.bind(provider='sqlite', filename='person.db', create_db=True)
 '''db.bind(provider='mysql', host='localhost', 
         user='root', password='root', 
         database='meubanco')
+
+# para conexão com Mysql é preciso instalar:
+# pip3 install pymysql
 '''
 
 # optando por criar as tabelas
