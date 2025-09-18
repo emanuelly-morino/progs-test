@@ -20,9 +20,10 @@ class Pessoa(Base):
     __tablename__ = "pessoa"
     id: Mapped[int] = mapped_column(primary_key=True)
     nome: Mapped[str] = mapped_column(String(250))
-    email: Mapped[Optional[str]] # opcional e sem tamanho definido
+    email: Mapped[Optional[str]] # optional and without length limit
     telefone: Mapped[str] 
 
+    # reverse list of celulares
     celulares: Mapped[List["Celular"]] = relationship(back_populates="pessoa", 
                                                 cascade="all, delete-orphan")
     
@@ -49,7 +50,28 @@ class Celular(Base):
 
 # configura o mecanismo de armazenamento
 # engine = create_engine("sqlite://", echo=True) # em memória
-engine = create_engine("sqlite:///person.db")# , echo=True) # sqlite
+
+# sqlite
+engine = create_engine("sqlite:///person.db")# , echo=True) 
+
+# mysql / mariadb
+# pip install sqlalchemy pymysql
+# engine = create_engine('mysql+pymysql://user:password@localhost:3306/mydatabase', echo=True)
+
+# oracle
+# pip install sqlalchemy oracledb
+# engine = create_engine('oracle+oracledb://user:password@localhost:1521/?service_name=xe', echo=True)
+
+# db2
+# pip install sqlalchemy ibm_db_sa
+# engine = create_engine('db2+ibm_db://user:password@localhost:50000/mydatabase', echo=True)
+
+# postgresql
+# engine = create_engine('postgresql+psycopg2://user:password@localhost/mydatabase', echo=True)
+
+# ms sql server
+# pip install sqlalchemy pyodbc
+# engine = create_engine('mssql+pyodbc://user:password@localhost/mydatabase?driver=ODBC+Driver+17+for+SQL+Server', echo=True)
 
 # cria a base de dados, se não houver
 Base.metadata.create_all(engine)
@@ -57,18 +79,18 @@ Base.metadata.create_all(engine)
 # inicia uma sessão
 with Session(engine) as session:
 
-    # cria um objeto
+    # create a new Pessoa object
     alguem = Pessoa(nome = "Joao da Silva", 
                     email = "josilva@gmail.com", 
                     telefone = "47 9 9234 1324")
 
-    # persiste 
+    # add the object to the session, to be persisted 
     session.add(alguem)
 
-    # confirma a gravação
+    # persist the object to the database
     session.commit()
 
-    # mostra as informações
+    # show the object
     print(alguem)
 
     # cria um celular
@@ -91,4 +113,3 @@ with Session(engine) as session:
     print("celulares de", alguem.nome,":")
     for c in alguem.celulares:
         print(c)
-

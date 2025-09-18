@@ -56,7 +56,7 @@ with Session(engine) as session:
     # LISTAGEM / CONSULTA (Retrieve) ----------------------------
     # https://docs.sqlalchemy.org/en/20/orm/quickstart.html#simple-select
 
-    # faz a consulta
+    # faz uma consulta
     stmt = select(Pessoa).where(Pessoa.nome.in_(["Joao da Silva", "Tiago Braun"]))
 
     # percorre os resultados
