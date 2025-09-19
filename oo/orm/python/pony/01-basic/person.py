@@ -11,7 +11,7 @@ db = Database()
 class Pessoa(db.Entity):
     nome = Required(str)
     email = Required(str)
-    telefone = Optional(str)
+    telefone = Optional(str, nullable=True)
 
 # especificando o BD; o BD será criado caso não exista
 db.bind(provider='sqlite', filename='person.db', create_db=True)

@@ -11,7 +11,7 @@ class Person(db.Entity):
 class Car(db.Entity):
     make = Required(str) # fabricante
     model = Required(str)
-    owner = Optional(Person)
+    owner = Optional(Person, nullable=True)
 
 db.bind(provider='sqlite', filename='person.db', create_db=True)
 db.generate_mapping(create_tables=True)
