@@ -19,9 +19,9 @@ class Base(DeclarativeBase):
 class Pessoa(Base):
     __tablename__ = "pessoa"
     id: Mapped[int] = mapped_column(primary_key=True)
-    nome: Mapped[str] = mapped_column(String(250))
-    email: Mapped[Optional[str]] # optional and without length limit
-    telefone: Mapped[str] 
+    nome: Mapped[str] # = mapped_column(String(250))
+    email: Mapped[Optional[str]] = mapped_column(String, nullable=True) 
+    telefone: Mapped[str] # = mapped_column(String(20))
 
     # reverse list of celulares
     celulares: Mapped[List["Celular"]] = relationship(back_populates="pessoa", 
@@ -37,8 +37,8 @@ class Pessoa(Base):
 class Celular(Base):
     __tablename__ = "celular"
     id: Mapped[int] = mapped_column(primary_key=True)
-    marca: Mapped[str]
-    modelo: Mapped[str]
+    marca: Mapped[str] # = mapped_column(String(60))
+    modelo: Mapped[str] # = mapped_column(String(60))
     pessoa_id: Mapped[int] = mapped_column(ForeignKey("pessoa.id"))
     pessoa: Mapped["Pessoa"] = relationship(back_populates="celulares")
 
@@ -56,22 +56,10 @@ engine = create_engine("sqlite:///person.db")# , echo=True)
 
 # mysql / mariadb
 # pip install sqlalchemy pymysql
-# engine = create_engine('mysql+pymysql://user:password@localhost:3306/mydatabase', echo=True)
-
-# oracle
-# pip install sqlalchemy oracledb
-# engine = create_engine('oracle+oracledb://user:password@localhost:1521/?service_name=xe', echo=True)
-
-# db2
-# pip install sqlalchemy ibm_db_sa
-# engine = create_engine('db2+ibm_db://user:password@localhost:50000/mydatabase', echo=True)
+# engine = create_engine('mysql+pymysql://root:root@191.52.7.116:3306/testando', echo=True)
 
 # postgresql
 # engine = create_engine('postgresql+psycopg2://user:password@localhost/mydatabase', echo=True)
-
-# ms sql server
-# pip install sqlalchemy pyodbc
-# engine = create_engine('mssql+pyodbc://user:password@localhost/mydatabase?driver=ODBC+Driver+17+for+SQL+Server', echo=True)
 
 # cria a base de dados, se não houver
 Base.metadata.create_all(engine)
