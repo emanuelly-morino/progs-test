@@ -1,0 +1,39 @@
+-- em quanta receitas cada ingrediente foi usado?
+
+SELECT count(ii.ingrediente) n, i.nome ingrediente
+FROM Ingrediente i, ItemIngrediente ii, Receita r 
+WHERE  i.id = ii.ingrediente AND 
+r.id  = ii.receita 
+group by ingrediente
+order by n desc
+
+-- qual é a nota média por receita?
+
+SELECT avg(c.nota) media, r.titulo receita
+FROM Receita r, Comentario c 
+WHERE r.id = c.receita 
+group by receita
+
+-- receitas por ordem de tempo de preparo
+SELECT titulo, tempo_preparo
+FROM Receita 
+ORDER BY tempo_preparo 
+
+-- receitas e quantidade de ingredientes em cada receita
+SELECT count(ii.id), r.titulo receita
+FROM Receita r, ItemIngrediente ii 
+WHERE r.id  = ii.receita 
+group by receita
+
+-- o quanto de cada ingrediente é preciso para fazer cada receita
+SELECT sum(ii.quantidade) q, i.nome ingrediente
+FROM Ingrediente i, Receita r, ItemIngrediente ii
+WHERE
+i.id = ii.ingrediente AND
+r.id = ii.receita 
+GROUP BY ingrediente
+ORDER BY q DESC
+
+
+
+
