@@ -9,7 +9,7 @@ db = Database()
 # ======================================================
 class Pessoa(db.Entity):
     nome = Required(str)
-    data_cadastro = Optional(date, default=date.today)
+    data_cadastro = Optional(date, default=date.today, sql_default='CURRENT_DATE', nullable=True)
     email = Required(str, unique=True)
     telefone = Optional(str, nullable=True)  
 
@@ -20,4 +20,9 @@ class Pessoa(db.Entity):
 # Exemplo com SQLite (arquivo local)
 db.bind(provider="sqlite", filename="pessoa.db", create_db=True)
 db.generate_mapping(create_tables=True)
+
+# Exemplo com MYSQL
+#db.bind(provider='mysql', host='localhost', user='root', passwd='root', db='Joao')
+#db.generate_mapping(create_tables=True) 
+
 
