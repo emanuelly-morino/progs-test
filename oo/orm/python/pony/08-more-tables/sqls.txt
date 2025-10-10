@@ -1,5 +1,4 @@
 -- em quanta receitas cada ingrediente foi usado?
-
 SELECT count(ii.ingrediente) n, i.nome ingrediente
 FROM Ingrediente i, ItemIngrediente ii, Receita r 
 WHERE  i.id = ii.ingrediente AND 
@@ -8,7 +7,6 @@ group by ingrediente
 order by n desc
 
 -- qual é a nota média por receita?
-
 SELECT avg(c.nota) media, r.titulo receita
 FROM Receita r, Comentario c 
 WHERE r.id = c.receita 

@@ -105,7 +105,6 @@ with db_session:
     ItemIngrediente(receita=coxinha, ingrediente=farinha_milho, quantidade=200)
     ItemIngrediente(receita=coxinha, ingrediente=farinha, quantidade=100)
     ItemIngrediente(receita=coxinha, ingrediente=leite, quantidade=300)
-    ItemIngrediente(receita=coxinha, ingrediente=sal, quantidade=5)
     ItemIngrediente(receita=coxinha, ingrediente=pimenta, quantidade=2)
     ItemIngrediente(receita=coxinha, ingrediente=oleo, quantidade=1000)
     ItemIngrediente(receita=coxinha, ingrediente=farinha_roca, quantidade=150)
