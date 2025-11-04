@@ -110,6 +110,7 @@ def authorize():
     payload = {
         "sub": user_info["email"],
         "name": user_info["name"],
+        "picture": user_info["picture"],
         "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
         "iat": datetime.datetime.utcnow()
     }

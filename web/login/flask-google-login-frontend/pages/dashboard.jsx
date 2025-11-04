@@ -21,7 +21,17 @@ export default function Dashboard() {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) setError(data.error);
-        else setUser(data.user || data);
+        else {
+          setUser(data.user || data);
+
+          // discover the data
+          let output='';
+          for (const key in data.user) {
+            output += `${key}: ${data.user[key]}\n`;
+          }
+          alert(output);
+          
+        }
       })
       .catch(() => setError("Failed to fetch user data"));
   }, []);
@@ -32,6 +42,7 @@ export default function Dashboard() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-2xl font-bold mb-4">Welcome, {user.name}!</h1>
+      <img src={user.picture} alt="Profile" className="rounded-full mb-4" />
       <p>Email: {user.sub}</p>
       <button
         onClick={() => {
