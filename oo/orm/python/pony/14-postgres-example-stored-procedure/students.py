@@ -44,3 +44,10 @@ with db_session:
     for pagamento in pagamentos:
         print(pagamento)
         print(f"  - Aluno: {pagamento.aluno.nome}, Email: {pagamento.aluno.email}")
+
+''' instalar biblioteca de acesso postgres:
+ LINUX:
+ pip3 install psycopg2-binary --break-system-packages
+
+
+'''
