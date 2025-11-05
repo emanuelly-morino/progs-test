@@ -18,7 +18,7 @@ class Pagamento(db.Entity):
     def __str__(self):
         return f"Pagamento de {self.valor} em {self.data} para {self.aluno.nome}"
 
-db.bind(provider='postgres', user='postgres', password='root', host='localhost', database='info_201_stored')
+db.bind(provider='postgres', user='postgres', password='root', host='localhost', database='hylson')
 db.generate_mapping(create_tables=True)
 
 with db_session:
