@@ -5,7 +5,7 @@ db = Database()
 
 class Aluno(db.Entity):
     nome = Required(str)
-    email = Required(str, unique=True)
+    email = Optional(str, unique=True, nullable=True)
     pagamentos = Set('Pagamento')
     def __str__(self):
         return f"Aluno: {self.nome}, Email: {self.email}"
