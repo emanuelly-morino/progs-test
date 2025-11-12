@@ -22,18 +22,18 @@ with db_session:
     tecnico3 = Tecnico(pessoa=pessoa4)
     print(f"Técnico criado: {tecnico3.pessoa.nome}, Email: {tecnico3.pessoa.email}")
 
-    # cria um equipamento
+    # cria um NOTEBOOK
     equipamento1 = Equipamento(nome="Notebook Dell", descricao="Notebook Dell Inspiron 1500")
     print(f"Equipamento criado: {equipamento1.nome}, Descrição: {equipamento1.descricao}")
     
-    # cria um serviço para o técnico 1
+    # serviços para o notebook
     servico1 = Servico(cliente=cliente1, equipamento=equipamento1, tecnico=tecnico1,
                        descricao="Troca de tela", preco=250.0)
     print(f"Serviço criado: {servico1.descricao}, Preço: {servico1.preco}, Técnico: {servico1.tecnico.pessoa.nome}")
     
     # cria um serviço sem técnico (técnico opcional)
     servico2 = Servico(cliente=cliente1, equipamento=equipamento1, tecnico=None,
-                       descricao="Limpeza geral", preco=100.0)
+                       descricao="Limpeza geral", preco=100.0, data_conclusao="2025-11-15")
     print(f"Serviço criado: {servico2.descricao}, Preço: {servico2.preco}, Técnico: {servico2.tecnico}")
     
     # cria outro serviço para o técnico 2
@@ -41,17 +41,31 @@ with db_session:
                        descricao="Troca de bateria", preco=150.0)
     print(f"Serviço criado: {servico3.descricao}, Preço: {servico3.preco}, Técnico: {servico3.tecnico.pessoa.nome}")
 
-    # mais um serviço para o primeiro técnico
-    servico4 = Servico(cliente=cliente1, equipamento=equipamento1, tecnico=tecnico1,
-                       descricao="Atualização de software", preco=80.0)
-    print(f"Serviço criado: {servico4.descricao}, Preço: {servico4.preco}, Técnico: {servico4.tecnico.pessoa.nome}")
+    # cria um SMARTPHONE (para o cliente 2)
+    equipamento2 = Equipamento(nome="Smartphone Samsung", descricao="Samsung Galaxy S10")
+    print(f"Equipamento criado: {equipamento2.nome}, Descrição: {equipamento2.descricao}")
 
     # um técnico virou cliente :-)
     cliente2 = Cliente(pessoa=tecnico3.pessoa, endereco="Rua B, 456")
     print(f"Cliente criado: {cliente2.pessoa.nome}, Email: {cliente2.pessoa.email}, Endereço: {cliente2.endereco}")
-    servico5 = Servico(cliente=cliente2, equipamento=equipamento1, tecnico=tecnico2,
-                       descricao="Reparo de teclado", preco=120.0)
+
+    # mais um serviço para o primeiro técnico
+    servico4 = Servico(cliente=cliente2, equipamento=equipamento2, tecnico=tecnico1,
+                       descricao="Atualização de software", preco=80.0, data_conclusao="2025-11-16")
+    print(f"Serviço criado: {servico4.descricao}, Preço: {servico4.preco}, Técnico: {servico4.tecnico.pessoa.nome}")
+
+    servico5 = Servico(cliente=cliente2, equipamento=equipamento2, tecnico=tecnico2,
+                       descricao="Reparo de tela", preco=120.0)
     print(f"Serviço criado: {servico5.descricao}, Preço: {servico5.preco}, Técnico: {servico5.tecnico.pessoa.nome}")
+
+    # outro equipamento; TABLET
+    equipamento3 = Equipamento(nome="Tablet Apple", descricao="iPad Pro 11''")
+    print(f"Equipamento criado: {equipamento3.nome}, Descrição: {equipamento3.descricao}")
+    
+    # criando um serviço para o terceiro equipamento
+    servico6 = Servico(cliente=cliente2, equipamento=equipamento3, tecnico=tecnico1
+                          , descricao="Substituição de tela", preco=300.0)
+    print(f"Serviço criado: {servico6.descricao}, Preço: {servico6.preco}, Técnico: {servico6.tecnico.pessoa.nome}")
 
     # consulta serviços
     servicos = Servico.select()[:]

@@ -34,6 +34,7 @@ class Servico(db.Entity):
     tecnico = Optional(Tecnico, nullable=True)
     descricao = Required(str)
     preco = Required(float)
+    data_abertura = Required(date, default=date.today)
     data_conclusao = Optional(date, nullable=True)
 
 
