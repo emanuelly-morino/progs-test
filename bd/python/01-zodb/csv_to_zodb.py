@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import io
 from persistent import Persistent
+from persistent.list import PersistentList
 import ZODB, ZODB.FileStorage
 import transaction
 import os
@@ -66,10 +67,16 @@ def csv_to_zodb(df):
     # The root object is where all other objects are attached
     root = conn.root
     
-    # Check if the main storage list exists, otherwise create it
-    if not hasattr(root, 'fire_records'):
-        setattr(root, 'fire_records', [])
-    
+    # Check if the main storage list exists, otherwise create it.
+    # Use PersistentList so ZODB notices in-place mutations like append/del.
+    if not hasattr(root, 'fire_records') or not isinstance(root.fire_records, PersistentList):
+        existing = getattr(root, 'fire_records', None)
+        if existing is None:
+            setattr(root, 'fire_records', PersistentList())
+        else:
+            # Convert any existing plain list into a PersistentList
+            setattr(root, 'fire_records', PersistentList(existing))
+
     fire_records_list = root.fire_records
     
     print("3. Converting DataFrame rows to FireRecord objects and storing...")
@@ -108,7 +115,7 @@ def csv_to_zodb(df):
     # Final commit to save all changes permanently to the .fs file
     transaction.commit()
     print("-" * 50)
-    print(f"✅ Success! Total {inserted_count} FireRecord objects inserted.")
+    print(f"Success! Total {inserted_count} FireRecord objects inserted.")
     print(f"ZODB file created: {ZODB_FILE}")
     print("-" * 50)
 
