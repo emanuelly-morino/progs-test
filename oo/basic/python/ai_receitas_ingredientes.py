@@ -47,3 +47,16 @@ print(r1) # .nome, r1.tempo_preparo, r1.modo_preparo)
 
 for ir in irs:
     print(ir.ingrediente.nome, ir.quantidade, ir.unidade)
+
+'''
+        Receita: Bolo de Milho
+        Tempo de preparo: 50 minutos
+        Como preparar: Bater tudo no liquidificador e colocar no forno
+        
+Milho 1 lata
+Leite 1 lata
+Açúcar 1 lata
+Ovos 3 unidade
+Óleo 0.5 lata
+Fermento 1 colher de chá
+'''
