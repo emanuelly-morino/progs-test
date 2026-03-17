@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    Valor de PI: <span id="mostrar_pi"></span>
+    <br>
+    Valor da soma: <span id="mostrar_soma"></span>
+    <br>
+    Valor da multiplicação: <span id="mostrar_mult"></span>
+
+    <!-- importar biblioteca javascript -->
+    <script type="module" src="./08-module-main.js"></script>
+
+    <script>
+        // colocando o valor na tela
+        document.getElementById('mostrar_pi').textContent = PI;
+
+        // somando números
+        const resultado = somar(5, 10);
+        document.getElementById('mostrar_soma').textContent = resultado;
+
+        // a função multiplicar foi importada por padrão
+        const mult = multiplicar(5, 10);
+        document.getElementById('mostrar_mult').textContent = mult;
+
+    </script>
+</body>
+
+</html>
