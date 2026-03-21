@@ -1,4 +1,4 @@
-import multiplicar, { PI, somar } from './07-module-lib.js';
+import multiplicar, { PI, somar } from './08-biblioteca.js';
 
 window.PI = PI;
 window.somar = somar;
