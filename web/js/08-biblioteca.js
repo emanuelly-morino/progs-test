@@ -1,4 +1,4 @@
-// arquivo math.js
+// arquivo biblioteca.js
 
 // itens exportados
 export const PI = 3.14159;

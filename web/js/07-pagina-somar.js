@@ -1,9 +1,5 @@
 import multiplicar, { PI, somar } from './08-biblioteca.js';
 
-window.PI = PI;
-window.somar = somar;
-window.multiplicar = multiplicar;
-
 // colocando o valor na tela
 document.getElementById('mostrar_pi').textContent = PI;
 
