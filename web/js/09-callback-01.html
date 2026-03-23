@@ -8,20 +8,22 @@
 </head>
 
 <body>
-    Random numbers:
-    <p id="numbers">
+    Greetings
+    <p id="greetings">
     </p>
 
     <script>
 
         // função callback
         function sayGoodbye() {
-            console.log("Goodbye!");
+            const g = document.getElementById("greetings");
+            g.innerHTML += "Goodbye!<br>";
         }
 
         // função principal
         function cumprimentar(nome, callback) {
-            console.log(`Hello, ${nome}!`);
+            const g = document.getElementById("greetings");
+            g.innerHTML += `Hello, ${nome}!<br>`;
             // invocar a função callback
             callback();
         }
