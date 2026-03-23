@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+
+<body>
+    Random numbers:
+    <p id="numbers">
+    </p>
+
+    <script>
+
+        // função callback com parâmetro
+        function sayGoodbye(quemFalou) {
+            console.log(`Opa, estou aqui, ${quemFalou}!`);
+        }
+
+        // função principal
+        function cumprimentar(quemCumprimentou, 
+                                cumprimentado, 
+                                callback) {
+            console.log(`Atenção, ${cumprimentado}!`);
+            // invocar a função callback
+            callback(quemCumprimentou);
+        }
+
+        // executar a função principal :-)
+        cumprimentar("João", "Maria", sayGoodbye);
+        cumprimentar("João", "Paulo", sayGoodbye);
+
+    </script>
+
+</body>
+
+</html>
