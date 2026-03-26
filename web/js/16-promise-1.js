@@ -1,4 +1,3 @@
-
 function sorteiaUmNumero() {
     // cria um objeto do tipo Promise
     return new Promise(
