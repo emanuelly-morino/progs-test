@@ -14,7 +14,6 @@ def draw():
     apple.draw()
     screen.draw.text(f'Score: {score}', (10, 10), color='white')
     screen.draw.text(f'Time: {game_time}', (10, 30), color='white')
-
     
 def place_apple():
     apple.x = randint(0, 800)
