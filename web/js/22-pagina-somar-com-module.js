@@ -1,20 +1,7 @@
-// ---------------------------------
-// recursos deste arquivo javascript
-// ---------------------------------
-
-const PI = 3.14159;
-
-function somar(a, b) {
-  return a + b;
-}
-
-function multiplicar(a, b) {
-  return a * b;
-}
-
-// -----
-// ações
-// -----
+// como este arquivo javascript utiliza import,
+// é preciso que ele seja importado usando MODULE:
+// <script type="module" src="./22-pagina-somar.js"></script>
+import { PI, somar } from './23-biblioteca.js';
 
 // colocando o valor na tela
 document.getElementById('mostrar_pi').textContent = PI;
