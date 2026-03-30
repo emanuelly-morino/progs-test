@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Mini Blog</title>
-</head>
-<body>
-
-  <h1>Mini Blog</h1>
-
-  <h2>Criar Post</h2>
-  <input type="text" id="titulo" placeholder="titulo"><br><br>
-  <textarea id="conteudo" placeholder="conteudo"></textarea><br><br>
-
-  <button onclick="criarPost()">Enviar</button>
-
-  <h2>Posts</h2>
-  <ul id="lista-posts"></ul>
-
-<script>
 async function carregarPosts() {
   // busca posts do backend
   const response = await fetch('/posts');
@@ -70,7 +50,3 @@ async function criarPost() {
 
 // carrega posts ao abrir
 carregarPosts();
-</script>
-
-</body>
-</html>
