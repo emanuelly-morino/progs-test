@@ -50,6 +50,7 @@ class OrdemServico {
   data_saida Date
   cliente Cliente
   desconto int
+  servicos_realizados: list of ServicoRealizado
 }
   
 Veiculo <|-- VeiculoComPassageiros
