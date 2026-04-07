@@ -1,5 +1,5 @@
 class Servico:
-    def __init__(self, descricao, valor):
+    def __init__(self, descricao: str, valor: float):
         self.descricao = descricao
         self.valor = valor
     def __str__(self):
@@ -7,7 +7,3 @@ class Servico:
         Descrição do serviço: {self.descricao}
         Valor: {self.valor}
         '''
-
-s1 = Servico("Troca de óleo", 50)
-#print(s1.descricao, s1.valor)
-print(s1)
