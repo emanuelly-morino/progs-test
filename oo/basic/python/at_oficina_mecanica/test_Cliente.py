@@ -8,3 +8,5 @@ class TestarPessoa(unittest.TestCase):
         obj2 = Cliente(obj, "josilva@gmail.com")
         self.assertEqual(obj2.pessoa.nome, "João da Silva")
         self.assertEqual(obj2.email, "josilva@gmail.com")
+
+unittest.main()
