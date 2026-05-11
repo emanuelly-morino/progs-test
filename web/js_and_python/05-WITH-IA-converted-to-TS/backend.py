@@ -54,7 +54,17 @@ def criar_filme():
 @app.route('/filmes', methods=['GET'])
 @db_session
 def listar_filmes():
-    filmes = select(f for f in Filme)[:]
+    
+    # 
+    filmes = select(f for f in Filme).list()
+    # filmes = select(f for f in Filme)[:]
+    
+    # em caso de erro do comando acima, seguem alternativas
+    # erros podem ocorrer devido a versões de python, pony, etc
+    #
+    # filmes = Filme.select()[:]
+    # filmes = list(select(f for f in Filme))
+    # filmes = db.select_by_sql("SELECT * FROM Filme")
 
     return jsonify([
         {
