@@ -56,8 +56,7 @@ def criar_filme():
 def listar_filmes():
     
     # 
-    filmes = select(f for f in Filme).list()
-    # filmes = select(f for f in Filme)[:]
+    filmes = select(f for f in Filme)[:]
     
     # em caso de erro do comando acima, seguem alternativas
     # erros podem ocorrer devido a versões de python, pony, etc
