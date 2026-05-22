@@ -14,7 +14,11 @@ from sqlalchemy.orm import registry, Session
 # -------------------------
 
 class Usuario:
-    # não é necessário definir __init__
+    # é possível não definir __init__
+    # o mapeamento imperativo ainda funcionará, 
+    # mas os objetos da classe Usuario precisarão ser 
+    # criados sem argumentos e os atributos terão que ser 
+    # atribuídos manualmente após a criação
     pass
 
 # -------------------------
@@ -52,6 +56,8 @@ metadata.create_all(engine)
 # Inserindo dados
 with Session(engine) as session:
 
+    # neste caso precisamos criar o objeto e depois atribuir os valores, 
+    # já que não temos um __init__ definido
     u1 = Usuario()
     u1.nome = "Ana"
 
