@@ -1,0 +1,15 @@
+@startuml
+
+class Jogador {
+   posicao String
+   nome String
+   clube String
+}
+
+class Selecao {
+   nome String
+   jogadores list of Jogador
+}
+
+Selecao o-- Jogador
+
