@@ -1,5 +1,14 @@
+# biblioteca adicional para o comando seguinte
+import os
+
+# comando para centralizar a janela
+os.environ['SDL_VIDEO_CENTERED'] = '1'
+
+# somente depois do comando acima, 
 # importar o módulo pgzrun para rodar o jogo
 import pgzrun
+
+# outras bibliotecas auxiliares
 from random import randint
 import pygame
 
@@ -17,6 +26,8 @@ quad.vx = 0
 quad.vy = 0
 
 # definir a "passada" do caçador
+# a quantidade de deslocamentos que o caçador
+# vai "andar" a cada movimento
 passo_cacador = 3
 
 # definir uma lista de alvos
@@ -31,7 +42,7 @@ for i in range(3):
     # adicionar o alvo na lista
     alvos.append(ob)
 
-# método que vai desenhar os atores na tela
+# método que vai desenhar as "coisas"
 def draw():
     # limpar a tela
     screen.clear()
@@ -59,18 +70,22 @@ def update():
         alvo = alvos[0]
 
         # se o caçador está "longe" do alvo em relação à "X"
+        # o que é "longe"? É uma distância maior do que 10
         if abs(quad.x - alvo.x) > 10:
-            # pára o caçador verticalmente
+            # interrompe o caçador verticalmente
+            # para poder movimentar somente em X
             quad.vy = 0            
-            # se o caçador está à direita do alvo
+            # se o caçador está à direita do alvo...
             if quad.x > alvo.x:
-                # o caçador vai ter uma velocidade "para a esquerda"
-                quad.vx = -passo_cacador
+                # ... o caçador vai ter uma velocidade "para a esquerda"
+                quad.vx = - passo_cacador
             else:
-                # o caçador vai se mover em breve para a direita
+                # ... o caçador vai se mover em breve para a direita
                 quad.vx = passo_cacador
         else:
-            # pára o movimento em X, pois ele está "alinhado" com o alvo em "X"
+            # interrompe o movimento em X, 
+            # pois ele está "alinhado" com o 
+            # alvo em "X"
             quad.vx = 0
             # o caçador está abaixo do alvo?
             if quad.y > alvo.y:
@@ -80,7 +95,8 @@ def update():
                 # o caçador vai descer em breve
                 quad.vy = passo_cacador
             
-    # movimentar o ator de acordo com as velocidades atuais deles
+    # movimentar o ator de acordo com as 
+    # velocidades que foram definidas para ele
     quad.x += quad.vx
     quad.y += quad.vy
 
@@ -92,8 +108,9 @@ def update():
             alvos.remove(alvo)  
             # manda o caçador ficar parado, 
             # pois este poderia ser o último alvo
-            # se precisar começar a andar de novo, ele irá
-            # com a outra lógica de movimentação que está mais acima
+            # se precisar começar a andar de novo, 
+            # ele irá fazer isso, usando a
+            # outra lógica de movimentação que está mais acima
             quad.vx = 0
             quad.vy = 0 
 
