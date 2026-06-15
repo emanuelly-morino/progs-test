@@ -1,0 +1,26 @@
+@startuml
+
+class Cliente {
+  + nome : str
+  + data_nascimento : Date
+  + cpf : str
+}
+
+class Prato {
+  + nome : str
+  + ingredientes : List<str>
+  + modo_preparo : str
+  + preco : float
+}
+
+class Pedido {
+  + data_pedido : Date
+  + percentual_desconto : float
+  + valor_final : float
+}
+
+' Relacionamentos corrigidos
+Cliente "1" <-- "0..*" Pedido : -cliente
+Pedido "0..*" -- "1..*" Prato : -prato
+
+@enduml
