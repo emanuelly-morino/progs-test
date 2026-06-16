@@ -16,13 +16,20 @@ class Prato {
 class Pedido {
   + data_pedido : Date
   + percentual_desconto : float
-  + valor_final : float
-  + cliente: Cliente
-  + pratos: list[Prato]
+  + cliente : Cliente
+  + itens : list[ItemDoPedido]
+  + valor_total() : float
 }
 
-' Relacionamentos corrigidos
-Cliente -- Pedido
-Pedido  -- Prato
+class ItemDoPedido {
+  + prato: Prato
+  + valor_prato: float
+  + quantidade: int
+}
+
+Cliente  - Pedido 
+Pedido -  ItemDoPedido
+ItemDoPedido -- Prato
+
 
 @enduml
