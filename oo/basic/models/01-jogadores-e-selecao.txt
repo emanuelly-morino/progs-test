@@ -1,15 +1,15 @@
 @startuml
 
 class Jogador {
-   posicao String
-   nome String
-   clube String
+   posicao : str
+   nome: str
+   clube: str
 }
 
 class Selecao {
-   nome String
-   jogadores list of Jogador
+   nome: str
+   jogadores: list[Jogador]
 }
 
-Selecao o-- Jogador
+Selecao -- Jogador
 
