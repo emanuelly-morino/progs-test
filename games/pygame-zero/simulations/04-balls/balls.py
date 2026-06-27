@@ -1,24 +1,43 @@
+# biblioteca adicional para o comando seguinte
+import os
+
+map = input("which map do you want? (press ENTER to load map001.json)")
+if not map:
+    map = "map001.json"
+
+# encontrar a pasta na qual este programa está executando
+from pathlib import Path
+
+# Returns a Path object of the script's directory
+caminho = Path(__file__).parent.resolve()
+
+# adicionar o caminho ao mapa
+map = os.path.join(caminho, map)
+
+
+
+# comando para centralizar a janela
+os.environ['SDL_VIDEO_CENTERED'] = '1'
+
 import math
 import random
 import pgzrun
+import json
 
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 1000
+HEIGHT = 700
 
 GRAVITY = 0.35
 BOUNCE = 0.15
 FRICTION = 0.995
 
+PLATFORM_THICKNESS = 16
+
 balls = []
 spawn_timer = 0
 
-# Sloped platforms
-platforms = [
-    (100, 140, 350, 190),
-    (400, 220, 180, 310),
-    (250, 390, 650, 450),
-    (650, 520, 350, 570),
-]
+with open(map) as f:
+    platforms = json.load(f)
 
 
 def spawn_ball():
@@ -72,7 +91,12 @@ def update():
 
         collided = False
 
-        for x1, y1, x2, y2 in platforms:
+        for e in platforms:
+
+            x1 = e["x1"]
+            y1 = e["y1"]
+            x2 = e["x2"]
+            y2 = e["y2"]
 
             cx, cy = closest_point(ball["x"], ball["y"], x1, y1, x2, y2)
 
@@ -80,7 +104,7 @@ def update():
             dy = ball["y"] - cy
             dist = math.hypot(dx, dy)
 
-            if dist < ball["r"]:
+            if dist < ball["r"] + PLATFORM_THICKNESS / 2:
 
                 if dist == 0:
                     nx, ny = 0, -1
@@ -88,7 +112,7 @@ def update():
                     nx = dx / dist
                     ny = dy / dist
 
-                overlap = ball["r"] - dist
+                overlap = ball["r"] + PLATFORM_THICKNESS / 2 - dist
 
                 ball["x"] += nx * overlap
                 ball["y"] += ny * overlap
@@ -133,7 +157,13 @@ def draw():
 
     # Draw platforms
     for p in platforms:
-        screen.draw.line((p[0], p[1]), (p[2], p[3]), (220, 220, 255))
+        x1 = p["x1"]
+        y1 = p["y1"]
+        x2 = p["x2"]
+        y2 = p["y2"]
+
+        for i in range(-PLATFORM_THICKNESS // 2, PLATFORM_THICKNESS // 2 + 1):
+            screen.draw.line((x1,y1+i), (x2, y2+i), (220, 220, 255))
 
     # Draw balls
     for ball in balls:
