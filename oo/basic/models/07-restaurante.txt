@@ -8,7 +8,7 @@ class Cliente {
 
 class Prato {
   + nome : str
-  + ingredientes : List<str>
+  + ingredientes : list[str]
   + modo_preparo : str
   + preco : float
 }
@@ -21,8 +21,7 @@ class Pedido {
   + pratos: list[Prato]
 }
 
-' Relacionamentos corrigidos
-Cliente -- Pedido
-Pedido  -- Prato
+Cliente - Pedido
+Pedido  - Prato
 
 @enduml
