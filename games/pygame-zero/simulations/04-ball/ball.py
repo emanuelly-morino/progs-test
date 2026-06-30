@@ -1,4 +1,38 @@
+# biblioteca adicional para o comando seguinte
+import os
+# comando para centralizar a janela
+os.environ['SDL_VIDEO_CENTERED'] = '1'
+
+# biblioteca pygamezero e componente Actor
 import pgzrun
+from pgzero.actor import Actor
+
+''' 
+-------------------------
+Segue um trecho de código para ignorar warning sobre o screen.
+Um "warning" é um sublinhado em amarelo que aparece no código.
+Quem gera o warning é o Pylance, uma extensão do VSCode 
+que analisa o código em python realizando verificações.
+
+
+* No caso de "screen", ele é criado pelo pygame zero quando o
+programa é executado, mas o Pylance não sabe disso, por isso
+aponta o warning.
+* No caso de "Actor", a classe não está declarada, então
+o Pylance aponta warning.
+
+Para "resolver" esses warnings, usamos a variável TYPE_CHECKING.
+TYPE_CHECKING é Falso quando o programa está executando.
+Quando estamos editando o código no VSCode, ele é Verdadeiro.
+Então, durante a edição, informamos a origem de "screen"
+e de "Actor", para que o Pylance não gere um "warning".
+--------------------------
+'''
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    import pygame
+    screen: pygame.Surface
 
 # largura e altura da janela
 WIDTH = 600
@@ -12,7 +46,7 @@ GRAVITY = 0.5
 BOUNCE = 0.85
 
 # altura do piso
-FLOOR_Y = HEIGHT - 50
+FLOOR_Y = HEIGHT - 100
 
 # piso / "chão"
 floor = Actor("floor")
@@ -93,20 +127,24 @@ def draw():
 
 pgzrun.go()
 
-
 '''
 EXERCÍCIOS:
 a) alterar a velocidade inicial de queda da bola
 b) alterar a gravidade do cenário
-c) alterar o fator de perda do impacto da bola no chão (ao quicar, ela pode perder mais ou menos velocidade)
+c) alterar o fator de perda do impacto da bola no chão 
+(ao quicar, ela pode perder mais ou menos velocidade)
 
-Você pode também alterar a cor de fundo, a imagem do piso e a imagem da bola.
+Você pode também alterar a cor de fundo, 
+a imagem do piso e a imagem da bola.
 
 Algumas coisas para se pensar sobre como poderia fazer...
 
-d) tentar criar mais bolas? Em vez de criar variáveis com o nome "2", "3", poderia fazer uma "lista" :-)
+d) tentar criar mais bolas? Em vez de criar variáveis com o 
+nome "2", "3", poderia fazer uma "lista" :-)
 e) aumentar o tamanho da janela?
-f) tentar "girar" a bola? Procure assim no google: "pygamezero girar actor". 
-O giro seria diferente se a bola estiver quicando para a direita ou para a esquerda.
+f) tentar "girar" a bola? Procure assim no google: 
+"pygamezero girar actor". 
+O giro seria diferente se a bola estiver quicando 
+para a direita ou para a esquerda.
 
 '''
