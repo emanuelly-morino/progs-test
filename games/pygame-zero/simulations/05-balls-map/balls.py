@@ -14,8 +14,6 @@ caminho = Path(__file__).parent.resolve()
 # adicionar o caminho ao mapa
 map = os.path.join(caminho, map)
 
-
-
 # comando para centralizar a janela
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
