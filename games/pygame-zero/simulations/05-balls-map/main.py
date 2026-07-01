@@ -58,8 +58,7 @@ BOUNCE = 0.85
 
 BALL_RADIUS = 16
 
-FLOOR_Y = HEIGHT - 60
-
+FLOOR_Y = HEIGHT - 100
 
 # variáveis globais
 # -----------------
