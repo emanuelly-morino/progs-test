@@ -37,9 +37,17 @@ def retornar_pessoas():
         # adicionar a nova pessoa_objeto na lista de retorno
         retorno.append(nova)
 
+     # fechar a conexão com o banco de dados
+    conn.close()
+
     # retornar o retorno :-)
     return retorno
 
-    # fechar a conexão com o banco de dados
-    conn.close()
+'''
+alternativas:
 
+a) retorno = [Pessoa(nome, email, telefone) for nome, email, telefone in cursor.fetchall()]
+
+b) return [Pessoa(*pessoa) for pessoa in cursor.fetchall()]
+
+'''

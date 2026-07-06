@@ -1,5 +1,5 @@
-# importar o DAO
-import be_DAO as dao
+# importar o DAO: Data Access Object (camada de acesso a dados)
+import bf_DAO as dao
 
 # obter a listas de pessoas
 pessoas = dao.retornar_pessoas()
