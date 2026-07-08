@@ -20,5 +20,6 @@ b) Se houver algum erro na inclusão da pessoa
 (por exemplo, não foi informado o email), o que acontece?
 c) Após a inclusão da pessoa, qual é o ID dessa nova pessoa?
 d) O campo "id" existe na tabela do banco de dados,
-mas não está disponível na classe Pessoa.
+mas não está disponível na classe Pessoa. 
+Como resolver esse problema?
 '''

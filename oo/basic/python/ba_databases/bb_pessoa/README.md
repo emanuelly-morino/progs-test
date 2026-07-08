@@ -5,6 +5,12 @@
 poetry init
 poetry add mysql-connector-python
 ```
+
+# Como instalar as bibliotecas na primeira vez que for executar o programa?
+```
+poetry install
+```
+
 # Como executar?
 
 poetry run python be_principal.py
