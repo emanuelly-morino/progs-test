@@ -3,8 +3,8 @@ import services.pessoa as pessoa_service
 
 
 '''
-curl http://localhost:5000/login -X POST -H "Content-Type:application/json" -d '{"login":"maliv", "senha":"maliv123"}'
-{"detalhes":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4NDU3OTg2MSwianRpIjoiMzBlM2M1YTAtMWIzMC00N2NkLTlkNDAtNTljNzU2NDM5NWYwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzg0NTc5ODYxLCJjc3JmIjoiOTNiYWFlOTktNjJkYy00NGNjLTkyZjYtMTcwMGI4YzU4ODA4IiwiZXhwIjoxNzg0NTgwNzYxfQ.djHuaqM3JyePOzCYgY-A3W_5Qk0dR1Ty-pPNd_LwRi4"},"resultado":"ok"}
+curl http://localhost:5000/login -X POST -H "Content-Type:application/json" -d '{"login":"admin", "senha":"admin123"}'
+{"detalhes":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4NDU4NDIwNCwianRpIjoiNDE0NWNhOTUtYzA0NS00Mjk2LThjZjctNjUxNzliZTA5ZTMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3ODQ1ODQyMDQsImNzcmYiOiJhMmMxNTU4Yy1lNjI0LTQ2OTYtOWRlZi0wZGY5YTg4Mjc0MzMiLCJleHAiOjE3ODQ1ODUxMDR9.C2ZOz5K7Dm90QCXsiGC7BslmHn-DGYsVYRUtmmaPWsI"},"resultado":"ok"}
 
 '''
 

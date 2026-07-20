@@ -5,14 +5,8 @@ import services.pessoa as pessoa_service
 '''
 TESTE DE ROTA - Pessoa - POST
 
-curl http://localhost:5000/pessoa -X POST -H "Content-Type:application/json" -d '{"nome":"Maria Oliveira", "email":"maliv@gmail.com","telefone":"47 9 1122 3344", "login":"maliv","senha":"maliv123"}'
-{"detalhes":
-  {"email":"maliv@gmail.com",
-    "id":1,"login":"maliv",
-    "nome":"Maria Oliveira",
-    "senha":"$2b$12$ymgii0YggsCxiO2fSBBU5.YU9E97yD51X8wnoxEPehUY3/kaCKGqW",
-    "telefone":"47 9 1122 3344"},
-"resultado":"ok"}
+curl http://localhost:5000/pessoa -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4NDU4NDIwNCwianRpIjoiNDE0NWNhOTUtYzA0NS00Mjk2LThjZjctNjUxNzliZTA5ZTMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3ODQ1ODQyMDQsImNzcmYiOiJhMmMxNTU4Yy1lNjI0LTQ2OTYtOWRlZi0wZGY5YTg4Mjc0MzMiLCJleHAiOjE3ODQ1ODUxMDR9.C2ZOz5K7Dm90QCXsiGC7BslmHn-DGYsVYRUtmmaPWsI" -H "Content-Type:application/json" -d '{"nome":"Tiago Matos", "email":"tima@gmail.com","telefone":"47 9 8899 7766", "login":"tima","senha":"tima123"}'
+{"detalhes":{"email":"tima@gmail.com","id":2,"login":"tima","nome":"Tiago Matos","senha":"$2b$12$x6rPCQgWQWNfYAOzHv5s5ua/mIe9jKI77lZQ9GLi/9oDAEZlpvCVe","telefone":"47 9 8899 7766"},"resultado":"ok"}
 
 '''
 
