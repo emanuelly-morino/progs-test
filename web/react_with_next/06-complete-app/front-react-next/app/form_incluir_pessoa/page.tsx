@@ -135,7 +135,7 @@ return (
     <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
 
       <h1
-      class="text-4xl font-bold tracking-tight text-gray-900 mb-4"
+      className="text-4xl font-bold tracking-tight text-gray-900 mb-4"
       >Cadastrar Pessoa</h1>
 
       {message && (
