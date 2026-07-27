@@ -36,3 +36,10 @@ def criar_banco():
     return jsonify({"resultado":"ok", 
                     "detalhes":"Banco de dados criado com sucesso!"})
 
+
+# rota padrão
+@app.route('/info')
+def info():
+    s = 'Where is the database?'
+    s += app.config['SQLALCHEMY_DATABASE_URI']
+    return "Info: " + s

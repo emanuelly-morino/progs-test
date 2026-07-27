@@ -27,7 +27,7 @@ jwt = JWTManager(app)
 # pega o caminho no qual está este arquivo
 caminho = os.path.dirname(os.path.abspath(__file__))
 # soma o caminho ao nome do arquivo
-arquivobd = os.path.join(caminho, 'database/pessoas.db')
+arquivobd = os.path.join(caminho, 'database', 'pessoas.db')
 # configura o arquivo de banco de dados
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + arquivobd
 
