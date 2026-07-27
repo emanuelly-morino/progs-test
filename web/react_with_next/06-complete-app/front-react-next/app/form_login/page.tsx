@@ -48,7 +48,7 @@ export default function LoginPage() {
 return (
     <div style={{ maxWidth: "300px", margin: "50px auto", textAlign: "center" }}>
       <h1
-      class="text-4xl font-bold tracking-tight text-gray-900 mb-4"
+      className="text-4xl font-bold tracking-tight text-gray-900 mb-4"
       >Login</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleLogin}

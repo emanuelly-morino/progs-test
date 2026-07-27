@@ -17,7 +17,7 @@ export default async function Listar_Pessoas() {
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <h1
-        class="text-4xl font-bold tracking-tight text-gray-900 mb-4"
+        className="text-4xl font-bold tracking-tight text-gray-900 mb-4"
         >Pessoas</h1>
         <ul
         className="mt-6 w-full divide-y divide-gray-200 rounded-xl border border-gray-200 bg-white shadow-md"
