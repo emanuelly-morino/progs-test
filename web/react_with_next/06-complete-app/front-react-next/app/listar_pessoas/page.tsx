@@ -4,14 +4,14 @@ export default async function Listar_Pessoas() {
 
   const response = await fetch(apiUrl+'/pessoas');
 
+  console.log('chamado: '+apiUrl+'/pessoas');
+
   if (!response.ok) {
     throw new Error("Failed to fetch posts");
   }
 
   const data = await response.json();
-  const lines = Array.isArray(data?.detalhes) ? data.detalhes : [];
-
-  
+  const lines = Array.isArray(data?.detalhes) ? data.detalhes : [];  
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
