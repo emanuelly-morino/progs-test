@@ -4,7 +4,8 @@ export default async function Retornar_Pessoas() {
 
     let logs = "Página iniciada, buscando dados de: " + apiUrl + '/pessoas'
 
-    const response = await fetch(apiUrl + '/pessoas');
+    // disable cache to get updated records!
+    const response = await fetch(apiUrl + '/pessoas' , {cache: 'no-store'} ); 
 
     logs = logs + "; " + ' API disparada; ';
 
