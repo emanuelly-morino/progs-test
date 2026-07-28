@@ -4,7 +4,7 @@
 Use este comando:
 
 ```
-poetry install 
+uv sync
 ```
 
 # Como executar
@@ -12,7 +12,7 @@ poetry install
 Para executar o backend, use este comando:
 
 ```
-poetry run flask --app src/app run
+uv run flask --app src/app run
 ```
 
 # Como testar
