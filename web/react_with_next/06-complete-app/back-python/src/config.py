@@ -25,7 +25,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 database_url = (
     os.getenv("DATABASE_URL")
-    or os.getenv("POSTGRES_URL_NON_PULLING")
+    or os.getenv("POSTGRES_URL_NON_POOLING")
 )
 
 if database_url and database_url.startswith("postgres://"):
