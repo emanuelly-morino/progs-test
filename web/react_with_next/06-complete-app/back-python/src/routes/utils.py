@@ -14,10 +14,8 @@ def my_custom_unauthorized_callback(error_string):
 def index():
     return "Backend operante :-)"
 
-# uma rota para criar o banco de dados, caso necessário
-@app.route("/criar_banco", methods=['GET'])
-def criar_banco():
-    # é necessário "entrar" em um contexto
+def auxiliar_criar_bd():
+# é necessário "entrar" em um contexto
     with app.app_context():
         # criar as tabelas (na primeira execução)
         db.create_all() 
@@ -32,6 +30,12 @@ def criar_banco():
         )
         db.session.add(pessoa_inicial)
         db.session.commit()
+
+# uma rota para criar o banco de dados, caso necessário
+@app.route("/criar_banco", methods=['GET'])
+def criar_banco():
+    
+    auxiliar_criar_bd()
 
     return jsonify({"resultado":"ok", 
                     "detalhes":"Banco de dados criado com sucesso!"})
