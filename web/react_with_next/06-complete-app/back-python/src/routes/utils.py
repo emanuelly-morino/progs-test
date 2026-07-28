@@ -18,7 +18,7 @@ def auxiliar_criar_bd():
 # é necessário "entrar" em um contexto
     with app.app_context():
         # criar as tabelas (na primeira execução)
-        db.create_all() 
+        # db.create_all() 
 
         # popular o banco de dados com uma pessoa inicial
         pessoa_inicial = Pessoa(
