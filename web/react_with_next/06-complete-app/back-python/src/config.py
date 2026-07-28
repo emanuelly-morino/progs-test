@@ -28,8 +28,14 @@ database_url = (
     or os.getenv("POSTGRES_URL")
 )
 
-if database_url:
+if database_url and database_url.startswith("postgres://"):
+    database_url = database_url.replace(
+        "postgres://",
+        "postgresql+psycopg2://",
+        1,
+    )
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
 else:
     # pega o caminho no qual está este arquivo
     caminho = os.path.dirname(os.path.abspath(__file__))
