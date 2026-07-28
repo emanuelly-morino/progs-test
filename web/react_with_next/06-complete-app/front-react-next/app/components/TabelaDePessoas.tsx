@@ -10,18 +10,22 @@ export default async function Retornar_Pessoas() {
 
     //console.log('chamado: ' + apiUrl + '/pessoas');
 
+    let lines = [];
+
     if (!response.ok) {
-        throw new Error("Failed to fetch posts");
-    }
+        //throw new Error("Failed to fetch posts");
+        logs = logs + 'Erro ao buscar posts, response.ok = false';
+    } else {
 
     const data = await response.json();
 
     logs = logs + "; " + ' respostas obtidas, resultado = ' + data?.resultado;
 
-    const lines = Array.isArray(data?.detalhes) ? data.detalhes : [];
+    lines = Array.isArray(data?.detalhes) ? data.detalhes : [];
 
     logs = logs + "; " + ' linhas obtidas = ' + lines.length;
 
+    }
     return (
         <>
             {logs && (
