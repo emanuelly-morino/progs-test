@@ -5,8 +5,8 @@ from e_servicos import *
 serv = Servico()
 
 # quantos celulares existem no cadastro?
-q = serv.retorna_quantidade_registros("tbl_celulares")
-print(f"Existe {q} celulares na tabela")
+q = serv.retorna_quantidade_registros(TABELA_CELULARES)
+print(f"Existe(m) {q} celular(es) na tabela")
  
 # listando os celulares
 print("*** listando celulares")

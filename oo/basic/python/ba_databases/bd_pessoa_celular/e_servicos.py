@@ -15,7 +15,8 @@ def retornar_conexao_e_cursor():
     conn = mysql.connector.connect(
         host=HOST,
         user=USER,
-        password=PASSWORD
+        password=PASSWORD,
+        port=12960
     )
 
     # criar um cursor para executar comandos SQL
@@ -44,8 +45,8 @@ class Servico:
         conn, cursor = retornar_conexao_e_cursor()        
         
         # executar o comando SQL para incluir a pessoa
-        cursor.execute('''
-                CREATE TABLE tbl_pessoas (
+        cursor.execute(f'''
+                CREATE TABLE {TABELA_PESSOAS} (
                 id INT NOT NULL AUTO_INCREMENT,
                 nome varchar(255) NOT NULL,
                 email varchar(255) NOT NULL,
@@ -53,15 +54,18 @@ class Servico:
                 );
         ''')
 
-        cursor.execute('''
-                CREATE TABLE tbl_celulares (
+        # confirmar as alterações
+        conn.commit()
+
+        cursor.execute(f'''
+                CREATE TABLE {TABELA_CELULARES} (
                 id INT NOT NULL AUTO_INCREMENT,
                 numero varchar(50) NOT NULL,
                 marca varchar(50) NOT NULL,
                 operadora varchar(50) NOT NULL,
                 pessoa_id int NULL,
                 PRIMARY KEY (id),
-                FOREIGN KEY (pessoa_id) REFERENCES tbl_pessoas(id)
+                FOREIGN KEY (pessoa_id) REFERENCES {TABELA_PESSOAS}(id)
                 );
         ''')
 
@@ -76,15 +80,15 @@ class Servico:
         conn, cursor = retornar_conexao_e_cursor()        
         
         # cadastrar duas pessoas
-        cursor.execute("INSERT INTO tbl_pessoas VALUES (NULL, %s, %s)",
+        cursor.execute(f"INSERT INTO {TABELA_PESSOAS} VALUES (NULL, %s, %s)",
                         ("João da Silva", "jo@gmail.com"))
 
-        cursor.execute("INSERT INTO tbl_pessoas VALUES (NULL, %s, %s)",
+        cursor.execute(f"INSERT INTO {TABELA_PESSOAS} VALUES (NULL, %s, %s)",
                                         ("Maria Oliveira", "maliv@gmail.com"))
 
         # cadastrar um celular
         # esse celular será da pessoa "1"
-        cursor.execute ("INSERT INTO tbl_celulares VALUES (NULL, %s, %s, %s, %s)",
+        cursor.execute (f"INSERT INTO {TABELA_CELULARES} VALUES (NULL, %s, %s, %s, %s)",
                         ("47 9 99887766", "Nokia", "Claro", 1))
 
         # confirmar as alterações
@@ -100,7 +104,7 @@ class Servico:
         conn, cursor = retornar_conexao_e_cursor()        
         
         # executar o comando SQL para incluir a pessoa
-        cursor.execute("INSERT INTO tbl_pessoas (nome, email) VALUES (%s, %s)", (pessoa.nome, pessoa.email))
+        cursor.execute(f"INSERT INTO {TABELA_PESSOAS} (nome, email) VALUES (%s, %s)", (pessoa.nome, pessoa.email))
 
         # confirmar as alterações
         conn.commit()
@@ -115,7 +119,7 @@ class Servico:
         conn, cursor = retornar_conexao_e_cursor()        
     
         # executar o comando SQL para selecionar todas as pessoas
-        cursor.execute('SELECT id, nome, email FROM tbl_pessoas')
+        cursor.execute(f'SELECT id, nome, email FROM {TABELA_PESSOAS}')
         
         # obter os resultados da consulta
         pessoas = cursor.fetchall()
@@ -135,7 +139,7 @@ class Servico:
         conn, cursor = retornar_conexao_e_cursor()        
         
         # executar o comando SQL para incluir a pessoa
-        cursor.execute("DELETE from tbl_pessoas WHERE email = %s", (email,))
+        cursor.execute(f"DELETE from {TABELA_PESSOAS} WHERE email = %s", (email,))
 
         # confirmar a exclusão
         conn.commit()
@@ -171,7 +175,7 @@ class Servico:
         pessoas = self.retornar_pessoas()
 
         # obtém os celulares
-        cursor.execute("SELECT id, numero, marca, operadora, pessoa_id FROM tbl_celulares")
+        cursor.execute(f"SELECT id, numero, marca, operadora, pessoa_id FROM {TABELA_CELULARES}")
         
         # pega os resultados
         resultados = cursor.fetchall()
