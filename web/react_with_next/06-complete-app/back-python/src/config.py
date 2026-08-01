@@ -24,8 +24,9 @@ app.config['JWT_SECRET_KEY'] = 'kfjad fkjasdlkfja;sldkfj39480293afKJ KJD:'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 database_url = (
-    os.getenv("DATABASE_URL")
-    or os.getenv("POSTGRES_URL_NON_POOLING")
+    # esta é a variável de ambiente que contém
+    # a conexão com o banco de dados PostgreSQL no Supabase
+    os.getenv("POSTGRES_URL_NON_POOLING")
 )
 
 if database_url and database_url.startswith("postgres://"):
