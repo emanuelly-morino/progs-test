@@ -41,8 +41,7 @@ OU
 
 NO WINDOWS, use o prompt de comando (NÃO use o PowerShell), e execute desta maneira (note que não usaremos aspas simples e vamos inserir uma contrabarra antes das aspas duplas internas):
 
-```curl.exe -v -X POST "http://localhost:5000/login" -H "Content-Type: application/json" --data "{\"login\":\"admin\",\"senha\":\"admin123\"}"
-```
+```curl.exe -v -X POST "http://localhost:5000/login" -H "Content-Type: application/json" --data "{\"login\":\"admin\",\"senha\":\"admin123\"}"```
 
 # Incluir uma pessoa
 
