@@ -53,7 +53,7 @@ OU
 
 NO WINDOWS, acrescente ".exe" após o "curl", substitua as aspas simples por aspas duplas e insira contrabarra antes das aspas duplas internas. Por exemplo:
 
-```>curl.exe http://localhost:5000/pessoa -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4NTYxOTAzMCwianRpIjoiMGJiZTgyNjEtMjliNC00NWRjLWI4OGMtNmJhNzc3OTJjYzRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3ODU2MTkwMzAsImNzcmYiOiI3ZWRhYjgyYy1kM2JmLTQ5MjctYjcxMC02MjBmOTAzMzZhOWUiLCJleHAiOjE3ODU2MTk5MzB9.EmONHkGIfETj-ysOecWvrNrdT6lNlN9xhy-FyMUKHRM" -H "Content-Type:application/json" -d "{\"nome\":\"Sara Jango\", \"email\":\"saja@gmail.com\",\"telefone\":\"47 9 1155 4376\", \"login\":\"saja\",\"senha\":\"saja123\"}```
+```>curl.exe http://localhost:5000/pessoa -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4NTYxOTAzMCwianRpIjoiMGJiZTgyNjEtMjliNC00NWRjLWI4OGMtNmJhNzc3OTJjYzRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3ODU2MTkwMzAsImNzcmYiOiI3ZWRhYjgyYy1kM2JmLTQ5MjctYjcxMC02MjBmOTAzMzZhOWUiLCJleHAiOjE3ODU2MTk5MzB9.EmONHkGIfETj-ysOecWvrNrdT6lNlN9xhy-FyMUKHRM" -H "Content-Type:application/json" -d "{\"nome\":\"Sara Jango\", \"email\":\"saja@gmail.com\",\"telefone\":\"47 9 1155 4376\", \"login\":\"saja\",\"senha\":\"saja123\"}"```
 
 Observação: note que a *token* é gerada após o sucesso da execução do login. No exemplo de incluir pessoa, portanto, o valor de token usado no curl deve ser *substituído* pelo valor que for retornado na execução da rota *login*.
 
