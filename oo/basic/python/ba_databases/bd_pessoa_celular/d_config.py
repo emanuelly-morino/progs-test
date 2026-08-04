@@ -11,14 +11,36 @@ TABELA_CELULARES = "tbl_celulares_hylson"
 '''
 como configurar as variáveis:
 
-no linux:
+no WINDOWS (prompt de comando):
+----------
+
+* definir:
+set MINHA_VARIAVEL=valor
+
+* visualizar:
+echo %MINHA_VARIAVEL%
+
+
+no WINDOWS (powershell):
+----------
+
+* definir:
+$env:MINHA_VARIAVEL = "valor"
+
+* visualizar:
+echo $env:MINHA_VARIAVEL
+
+no LINUX:
+---------
+
+* definir:
 
 export DATABASE_NAME="pessoas_db"
 export DATABASE_HOST="zzzzz"
 export DATABASE_USER="yyyyy"
 export DATABASE_PASSWORD="KKKKK"
 
-para visualizar:
+* visualizar:
 
 echo $DATABASE_USER
 
