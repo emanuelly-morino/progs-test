@@ -70,3 +70,9 @@ try:
 except Exception as erro:
     print(f"Ocorreu um erro inesperado: {erro}")
 
+# 8. tratando o erro mas sem capturar a exceção
+try:
+    resultado = 10 / 0
+    print(resultado)
+except:
+    print("Ocorreu algum erro :-/")
