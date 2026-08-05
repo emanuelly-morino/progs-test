@@ -4,6 +4,7 @@ DATABASE_NAME = "ifcblu2026"
 HOST = os.getenv("DATABASE_HOST", "localhost") 
 USER = os.getenv("DATABASE_USER", "root") 
 PASSWORD = os.getenv("DATABASE_PASSWORD", "root") 
+PORT = os.getenv("DATABASE_PORT", "3306")
 
 TABELA_PESSOAS = "tbl_pessoas_hylson"
 TABELA_CELULARES = "tbl_celulares_hylson"

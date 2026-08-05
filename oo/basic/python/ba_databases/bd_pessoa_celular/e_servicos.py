@@ -16,7 +16,7 @@ def retornar_conexao_e_cursor():
         host=HOST,
         user=USER,
         password=PASSWORD,
-        port=12960
+        port=PORT
     )
 
     # criar um cursor para executar comandos SQL
@@ -97,7 +97,6 @@ class Servico:
         # fechar a conexão com o banco de dados
         conn.close()
 
-
     def incluir_pessoa(self, pessoa: Pessoa):
 
         # obter conexão e cursor
@@ -111,7 +110,6 @@ class Servico:
         
         # fechar a conexão com o banco de dados
         conn.close()
-
 
     def retornar_pessoas(self):
 
