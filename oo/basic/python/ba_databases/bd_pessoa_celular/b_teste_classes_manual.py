@@ -27,3 +27,15 @@ dados_paulo = {"email": "paro@gmail.com",
 pa = Pessoa(**dados_paulo)
 
 print(pa)
+
+
+
+
+
+
+
+
+
+# como seria sem usar * e **
+# ma = Pessoa(dados_maria[0], dados_maria[1], dados_maria[2])
+# pa = Pessoa(dados_paulo["id"], dados_paulo["nome"], dados_paulo["email"])
