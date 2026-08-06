@@ -2,7 +2,7 @@
 
 ## Configurar variáveis de ambiente
 
-Veja [neste código](https://gitlab.com/hvescovi/progs/-/blob/main/oo/basic/python/ba_databases/bd_pessoa_celular/d_config.py?ref_type=heads#L18) como configura as variáveis de ambiente.
+Veja [neste código](https://gitlab.com/hvescovi/progs/-/blob/main/oo/basic/python/ba_databases/bd_pessoa_celular/d_config.py?ref_type=heads#L18) como configurar as variáveis de ambiente.
 
 ## Instalar bibliotecas
 
