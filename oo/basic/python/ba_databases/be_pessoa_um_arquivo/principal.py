@@ -1,7 +1,5 @@
-# biblioteca para trabalhar com MySQL
-import mysql.connector
-# bibliotecas do sistema operacional
-import sys
+import mysql.connector # biblioteca para trabalhar com MySQL
+import sys # bibliotecas do sistema operacional
 import os
 
 # variáveis de ambiente: configurar no TERMINAL
@@ -14,8 +12,7 @@ PORT = os.getenv("DATABASE_PORT", "3306")
 TABELA_PESSOAS = "tbl_pessoas_hylson"
 TABELA_CELULARES = "tbl_celulares_hylson"
 
-# nome do banco de dados utilizado
-DATABASE_NAME = "ifcblu2026"
+DATABASE_NAME = "ifcblu2026" # nome do banco de dados utilizado
 
 # definições da classe
 class Pessoa:
@@ -29,8 +26,6 @@ class Pessoa:
 # ------------------------------------
 # tentar conectar-se ao banco de dados
 # ------------------------------------
-
-# tentar conectar-se ao servidor MySQL com usuário e senha
 try:
     print(f'''Vou tentar conectar em:
     servidor: {HOST}, 
@@ -60,7 +55,6 @@ except Exception as erro:
 # -----------------------
 # tentar criar as tabelas
 # -----------------------
-
 try:
     cursor.execute(f'''
             CREATE TABLE {TABELA_PESSOAS} (
@@ -112,25 +106,25 @@ for p in pessoas_em_objetos:
 
 print("Programa finalizado com sucesso")
 
-'''
+''' Roteiro (use o PowerShell)
 
-# Roteiro
+a) verifique se o "uv" está instalado, digite: uv
 
-a) crie um projeto do "uv":
-uv init meuprojeto
+Se não estiver:
+a1) Execute:
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+a2) Feche o terminal e abra outro
+a3) Teste a execução, digitando: uv
 
-b) entre na pasta:
-cd meuprojeto
+b) crie um projeto do "uv": uv init meuprojeto
 
-c) adicione a biblioteca do mysql:
-uv add mysql-connector-python
+c) entre na pasta: cd meuprojeto
 
-d) baixe a biblioteca
-uv sync
+d) adicione a biblioteca do mysql: uv add mysql-connector-python
 
-e) configure as variáveis de ambiente:
+e) baixe a biblioteca: uv sync
 
-Considerando que você vai usar o PowerShell:
+f) configure as variáveis de ambiente:
 
 $env:DATABASE_HOST="aaaaaaa"
 $env:DATABASE_USER="bbbbbb"
@@ -143,7 +137,5 @@ echo $env:DATABASE_USER
 echo $env:DATABASE_PASSWORD
 echo $env:DATABASE_PORT
 
-f) execute o programa:
-uv run principal.py
-
+g) execute o programa: uv run principal.py
 '''
