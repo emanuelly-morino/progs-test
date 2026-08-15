@@ -125,3 +125,4 @@ coverage
 *.iml
 .DS_Store # macOS specific
 npm-shrinkwrap.json
+/oo/basic/java/01-exemplo-override/nbproject/private/
